@@ -249,7 +249,6 @@ df = pd.DataFrame(
 # メモ：img = Image.open('pic/img031.jpg') # 画像の読み込み
 # メモ：st.image(img, caption='sample', use_column_width=True) # 画像の表示
 
-
 st.write('Interactive Widgets') # ウィジェットの表示
 
 text = st.sidebar.text_input('学びたい内容を入力してください') # テキスト入力
