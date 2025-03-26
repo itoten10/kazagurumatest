@@ -6,7 +6,8 @@ from openai import OpenAI
 client = OpenAI(api_key = st.secrets["GPTAPI"].get("OPENAI_API_KEY"))
 
 # Google Books APIキーの取得
-books_api_key = st.secrets["google"].get("books_api_key")
+books_api_key = st.secrets["google"]["books_api_key"]
+st.sidebar.text_input("APIキー確認用", value=books_api_key, type="password")
 
 # タイトル
 st.title('📚 学びたい内容に合った本をおすすめ！')
