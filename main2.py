@@ -18,13 +18,13 @@ content_goal_to_gpt = st.sidebar.text_input("上記入力した学びに対し�
 content_others_to_gpt = st.sidebar.text_input("その他本の選定にあたり考慮して欲しい事項を記載してください（例：英語の本は除く、なるべく分かりやすい本、短い時間で読める本）")
 
 # Google Books APIを使用して書籍を検索する関数
-def search_books(query, api_key, max_results=5):
+def search_books(query, books_api_key, max_results=5):
     base_url = "https://www.googleapis.com/books/v1/volumes"
     params = {
         "q": query,
         "maxResults": max_results,
         "printType": "books",
-        "key": api_key
+        "key": books_api_key
     }
     response = requests.get(base_url, params=params)
     if response.status_code == 200:
