@@ -90,7 +90,7 @@ def search_books(query, category, api_key):
 # メイン関数
 def main():
     st.title("Google Books 検索アプリ")
-    default_api_key = "AIzaSyBTzKTHSnpUBXiIKxQ5NCH7cKDGEqoBlzY"
+    default_api_key = st.secrets["google"].get("books_api_key")
     api_key = st.text_input("Google Books APIキーを入力してください", value=default_api_key, type="password")
         
     search_options = ["DX", "生成AI", "デジタルマーケティング", "Python", "プログラミング", "WEBアプリ開発"]
