@@ -5,9 +5,6 @@ import numpy as np # NumPyライブラリをインポート（数値計算を効
 import pandas as pd # pandasライブラリをインポート（データ解析や操作を行うため）
 import datetime # datetimeモジュールをインポート（日付や時刻を扱うため）
 
-# タイトル
-st.title('KAZAGURUMA（画像入れたい）')
-
 # StreamlitのSecretsからAPIキーを取得
 client = OpenAI(api_key = st.secrets["GPTAPI"].get("OPENAI_API_KEY"))
 
@@ -50,7 +47,8 @@ def run_gpt(content_text_to_gpt,content_kind_of_to_gpt,content_maxStr_to_gpt):
     output_content = response.choices[0].message.content.strip()
     return output_content # 返って来たレスポンスの内容を返す
 
-st.title('GPTに記事書かせるアプリ')# タイトル
+# タイトル
+st.title('KAZAGURUMA（画像入れたい）')
 
 # 書かせたい内容
 content_text_to_gpt = st.sidebar.text_input("書かせたい内容を入力してください！")
