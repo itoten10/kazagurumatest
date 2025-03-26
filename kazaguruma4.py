@@ -11,6 +11,15 @@ client = OpenAI(api_key = st.secrets["GPTAPI"].get("OPENAI_API_KEY"))
 # google books
 books_api_key = st.secrets["google"].get("books_api_key")
 
+# `plotly` のインポートを試みる
+try:
+    import plotly.graph_objects as go
+    plotly_available = True
+except ImportError:
+    plotly_available = False
+    st.warning("⚠️ `plotly` がインストールされていません。以下のコマンドでインストールしてください。\n\n```sh\npip install plotly\n```")
+
+# 生成AI活用
 content_kind_of =[
     "中立的で客観的な文章",
     "分かりやすい、簡潔な文章",
@@ -52,7 +61,7 @@ def run_gpt(content_text_to_gpt,content_kind_of_to_gpt,content_maxStr_to_gpt):
 
 
 # タイトル
-st.title('学習用本おすすめアプリ')
+st.title('📚 学びたい内容に合った本をおすすめ！')
 
 # 書かせたい内容
 content_text_to_gpt = st.sidebar.text_input("書かせたい内容を入力してください！")
@@ -65,15 +74,6 @@ content_maxStr_to_gpt = str(st.sidebar.slider('記事の最大文字数', 100,30
 
 output_content_text = run_gpt(content_text_to_gpt,content_kind_of_to_gpt,content_maxStr_to_gpt)
 st.write(output_content_text)
-
-
-# `plotly` のインポートを試みる
-try:
-    import plotly.graph_objects as go
-    plotly_available = True
-except ImportError:
-    plotly_available = False
-    st.warning("⚠️ `plotly` がインストールされていません。以下のコマンドでインストールしてください。\n\n```sh\npip install plotly\n```")
 
 
 # Google Books API検索関数
