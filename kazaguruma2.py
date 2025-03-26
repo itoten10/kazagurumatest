@@ -1,10 +1,12 @@
 import streamlit as st
 import requests
 
-# Google Books API で本を検索する関数
+# Streamlit Secrets から APIキーを取得
+API_KEY = st.secrets["google"]["books_api_key"]
+
 def search_books(query, max_results=5):
     """Google Books API を使って本を検索する"""
-    api_url = f"https://www.googleapis.com/books/v1/volumes?q={query}&maxResults={max_results}"
+    api_url = f"https://www.googleapis.com/books/v1/volumes?q={query}&maxResults={max_results}&key={API_KEY}"
     response = requests.get(api_url)
     data = response.json()
 
