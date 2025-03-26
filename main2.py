@@ -3,7 +3,7 @@ import requests
 from openai import OpenAI
 
 # OpenAIクライアントの初期化
-client = OpenAI(api_key = st.secrets["GPTAPI"].get("OPENAI_API_KEY"))
+client = OpenAI(api_key = st.secrets["GPTAPI"]["OPENAI_API_KEY"])
 
 # Google Books APIキーの取得
 books_api_key = st.secrets["google"]["books_api_key"]
