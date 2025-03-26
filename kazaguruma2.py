@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 # Streamlit Secrets から APIキーを取得
-API_KEY = st.secrets["google"]["books_api_key"]
+API_KEY = st.secrets["google"].get("books_api_key")
 
 def search_books(query, max_results=5):
     """Google Books API を使って本を検索する"""
