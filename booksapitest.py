@@ -4,6 +4,7 @@ import requests
 # 📌 SecretsからAPIキーを取得
 books_api_key = st.secrets["google"]["books_api_key"]
 st.sidebar.text_input("APIキー確認用", value=books_api_key, type="password")
+st.write("🔍 secrets の中身（debug）:", st.secrets)
 
 # 📚 Google Books APIを使って本を検索する関数
 def search_books(query, books_api_key, max_results=5):
